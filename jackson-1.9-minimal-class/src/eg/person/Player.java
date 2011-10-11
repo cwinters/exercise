@@ -14,7 +14,6 @@ public class Player extends Named {
                    @JsonProperty( "year" ) int year )
     {
         super( name );
-        System.out.println( "Called creator!" );
         this.position = position;
         this.year = year;
     }

@@ -22,8 +22,8 @@ public class MinimalClassTest {
         // into the data to find the actual class
         mapper.enableDefaultTyping( ObjectMapper.DefaultTyping.OBJECT_AND_NON_CONCRETE, 
                                     JsonTypeInfo.As.PROPERTY );
-        //mapper.setSerializationConfig( mapper.getSerializationConfig()
-        //        .with( SerializationConfig.Feature.USE_STATIC_TYPING ) );
+        mapper.setSerializationConfig( 
+            mapper.getSerializationConfig().with( SerializationConfig.Feature.USE_STATIC_TYPING ) );
     }
 
     @Test
@@ -32,7 +32,9 @@ public class MinimalClassTest {
         final Player toSerialize = new Player( "Michael Jordan", "Forward", 1987 );
         final String json = mapper.writeValueAsString( toSerialize );
         assertNotNull( json );
-        System.out.println( "Player (serialized):\n" + json );
+        System.out.println( "Player (serialized without Named.class):\n" + json );
+        System.out.println( "Player (serialized with Named.class):\n" + 
+                            mapper.writerWithType( Named.class ).writeValueAsString( toSerialize ) );
 
         final Player deserialized = (Player)mapper.readValue( json, Named.class );
         System.out.println( "Player (deserialized):\n" + deserialized );
@@ -45,7 +47,9 @@ public class MinimalClassTest {
         final Zebra toSerialize = new Zebra( "Bouncy", 37 );
         final String json = mapper.writeValueAsString( toSerialize );
         assertNotNull( json );
-        System.out.println( "Zebra:\n" + json );
+        System.out.println( "Zebra (serialized without Named.class):\n" + json );
+        System.out.println( "Zebra (serialized with Named.class):\n" + 
+                            mapper.writerWithType( Named.class ).writeValueAsString( toSerialize ) );
 
         final Zebra deserialized = (Zebra)mapper.readValue( json, Named.class );
         assertEquals( deserialized, toSerialize );
