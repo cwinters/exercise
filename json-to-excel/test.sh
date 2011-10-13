@@ -5,5 +5,5 @@ echo "  OK: cleaned classes"
 javac -cp 'lib/*' JsonToExcel.java
 echo "  OK: compiled"
 
-java -cp .:'lib/*' JsonToExcel < test.json
+java -cp .:'lib/*' JsonToExcel test.json
 
