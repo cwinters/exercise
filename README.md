@@ -6,3 +6,14 @@ jackson-1.9-minimal-class/
 json-to-excel/
 
 * naive transformation of JSON array with simple field values to a CSV file
+
+jackson-1.9-bug-autodetect/
+
+* test bug where undecorated property of parent is included in
+  serialized data
+
+jackson-1.9-bug-typeinfo/
+
+* for classes whose parent has a @JsonTypeInfo annotation, ensure
+  that not just the parent properties are included in the
+  deserialization
