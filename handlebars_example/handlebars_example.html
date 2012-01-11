@@ -38,6 +38,18 @@
  *    helper are escaped when you call options.fn(context),
  *    Handlebars does not escape the results of a block helper. If
  *    it did, inner content would be double-escaped!"
+ * 2. Passing key/value pairs to a block helper MUST be done with 
+ *    double-quotes, not single-quotes. For example, if you 
+ *    try to evaluate a template with:
+ *
+ *        {{#ulist items class='awesome'}}
+ *
+ *    you'll get the (rather nice) error in the console:
+ *  
+ *        Uncaught Error: Parse error on line 2:
+ *        ...{#ulist items class='awesome'}}        
+ *        -----------------------^
+ *        Expecting 'STRING', 'INTEGER', 'BOOLEAN', 'ID'  
  **/
   
     Handlebars.registerHelper( 'agree_button', function() {
