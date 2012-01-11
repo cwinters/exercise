@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>Handlebars test</title>
+<style type="text/css">
+.awesome {
+    background: black;
+}
+</style>
+<script src="jquery.js" type="text/javascript"></script>
+<script src="handlebars.js" type="text/javascript"></script>
+<script src="underscore.js" type="text/javascript"></script>
+<script id="tmplAgreeBase" type="text/template.handlebars">
+  <ul>
+    {{#each items}}
+      <li>{{agree_button}}</li>
+    {{/each}}
+  </ul>
+</script>
+
+<script id="tmplAgreeHelper" type="text/template.handlebars">
+    {{#ulist items}}
+        {{agree_button}}
+    {{/ulist}}
+</script>
+
+<script id="tmplAgreeStyled" type="text/template.handlebars">
+    {{#ulist items class="awesome"}}
+        {{agree_button}}
+    {{/ulist}}
+</script>
+
+<script type="text/javascript">
+/**
+ * NOTES:
+ *
+ * 1. contents of 'agree_button' helper are escaped, but 'ulist'
+ *    are not -- why? From the docs: "Since the contents of a block
+ *    helper are escaped when you call options.fn(context),
+ *    Handlebars does not escape the results of a block helper. If
+ *    it did, inner content would be double-escaped!"
+ **/
+  
+    Handlebars.registerHelper( 'agree_button', function() {
+        return new Handlebars.SafeString(
+            "<button>I agree. I " + this.emotion + " " + this.name + "</button>"
+        );
+    });
+
+    Handlebars.registerHelper( 'ulist', function( context, options ) {
+        var out = "<ul";
+        if ( options.hash.class ) {
+            out = out + ' class="' + options.hash.class + '"';
+        }
+        out = out + ">\n";
+        _.each( context, function( item ) {
+            out = out + "<li>" + options.fn( item ) + "</li>\n";
+        });
+        out += "</ul>\n";
+        return out; 
+    });
+       
+    var templateTypes = {
+      items: [
+        { name: "Handlebars", emotion: "love" },
+        { name: "Mustache",   emotion: "enjoy" },
+        { name: "SproutCore", emotion: "want to learn" }
+      ]
+    };
+    
+    function evalTemplate( sourceId, context ) {
+        var source = $( '#' + sourceId ).html();
+        var template = Handlebars.compile( source );
+        return template( context );
+    }
+
+    $( document ).ready( function() {
+        $( '#baseLink' ).click( function() { 
+            $( '#baseContainer' ).append( evalTemplate( 'tmplAgreeBase', templateTypes ) );
+        });
+        $( '#helperLink' ).click( function() { 
+            $( '#helperContainer' ).append( evalTemplate( 'tmplAgreeHelper', templateTypes ) );
+        });
+        $( '#helperStyleLink' ).click( function() { 
+            $( '#helperStyleContainer' ).append( evalTemplate( 'tmplAgreeStyled', templateTypes ) );
+        });
+    });
+</script>
+</head>
+<body>
+  <p><a href="#" id="baseLink">Generate base</a></p>
+  <div id="baseContainer"></div>
+  <p><a href="#" id="helperLink">Generate helper</a></p>
+  <div id="helperContainer"></div>
+  <p><a href="#" id="helperStyleLink">Generate helper with style</a></p>
+  <div id="helperStyleContainer"></div>
+</body>
+</html>
