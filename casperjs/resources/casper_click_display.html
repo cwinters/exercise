@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>CasperJS testing: click to display DOM element</title>
+<script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready( function() {
+  $( '#generate_dom' ).click( function() {
+      var newElement = '<p id="created_item">I am a little teapot</p>';
+      $( this ).after( newElement );
+  });
+});
+</script>
+</head>
+<body>
+  <div id="generate_dom">This should generate a new DOM item when
+  clicked.</div>
+
+</body>
+</html>

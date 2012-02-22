@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>CasperJS testing: AJAX results</title>
+<script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="underscore-1.3.1-min.js"></script>
+<script type="text/javascript">
+$(document).ready( function() {
+  $( '#generate_list' ).click( Page.fetchResults );
+});
+
+var Page = {
+    fetchResults : function() {
+      console.log( "Fetching query results..." );
+      $.ajax({
+          url      : '/testing/query_results.json',
+          type     : 'get',
+          dataType : 'json'
+      })
+      .done( Page.onSuccess )
+      .fail( Page.onFailure );
+  },
+  onSuccess : function( data ) {
+    console.log( "SUCCESS! Query results: " + JSON.stringify( data ) );
+    var content = [ '<div id="wishlist">', '<p>List: ' + data.name + ' @ ' + new Date( data.created ) + '</p>' ];
+    content.push( '<ul>' );
+    _.each( data.members, function( member ) {
+        content.push( '<li><a href="' + member.url + '">' + member.name + '</a></li>' );
+    });
+    content.push( '</ul>', '</div>' );
+    $( '#generate_list' ).after( content.join( "\n" ) );
+  },
+  onFailure : function( xhr, status, errorThrown ) {
+    console.log( "FAIL! [Status: " + status + "] [Error: " + errorThrown + "]" );
+    $( '#generate_list' ).after( "<p>Caught error! Error: " + errorThrown + "</p>" );
+  }
+};
+
+</script>
+
+</head>
+<body style="background: #fff">
+  <div id="generate_list">Click to fetch and display.</div>
+</body>
+</html>
