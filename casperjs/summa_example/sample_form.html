@@ -1,0 +1,104 @@
+<html>
+<head>
+
+<title>Sample form for Casper testing</title>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.1/underscore-min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="style.css" />
+
+<script type="text/javascript" src="sample_form.js"></script>
+
+</head>
+<body bgcolor="#ffffff">
+<div id="errors"></div>
+<form id="sample_form" name="sample_form" action="sample_form.html" method="post">
+    Name:
+    <div class="indent">
+        <input type="text" name="person_name" id="person_name" size="40" />
+    </div>
+
+    Age:
+    <div class="indent">
+        <select name="person_age">
+            <option value="">Please select...</option>
+            <option value="1">-25</option>
+            <option value="2">25-34</option>
+            <option value="3">35-44</option>
+            <option value="4">45+</option>
+        </select>
+    </div>
+
+    Doctor:
+    <div class="indent">
+        <select name="physician">
+            <option value="">Please select...</option>
+            <option value="452">Dr. Benjamin Franklin Pierce</option>
+            <option value="644">Dr. Jack Shephard</option>
+            <option value="319">Dr. Jonathan Katz</option>
+            <option value="109">Dr. Marcus Welby</option>
+            <option value="783">Dr. Nick Riviera</option>
+            <option value="378">Dr. Quincy</option>
+            <option value="221">Dr. Richard Kimble</option>
+            <option value="818">Dr. Rudy Wells</option>
+            <option value="599">Dr. Tim Whatley</option>
+        </select>
+    </div>
+
+    Gender:
+    <div class="indent">
+        <input type="radio" name="gender" value="male" id="gender_male" /> <label for="gender_male">Male</label> |
+        <input type="radio" name="gender" value="female" id="gender_female" /> <label for="gender_female">Female</label> |
+        <input type="radio" name="gender" value="myob" id="gender_myob" /> <label for="gender_myob">None of your beeswax!</label>
+    </div>
+
+    Do you have an axe?
+    <div class="indent">
+        <input type="radio" name="has_axe" value="yes" id="has_axe_yes" /> <label for="has_axe_yes">Yes</label> |
+        <input type="radio" name="has_axe" value="no" id="has_axe_no" /> <label for="has_axe_no">No</label> |
+        <input type="radio" name="has_axe" value="maybe" id="has_axe_maybe" /> <label for="has_axe_maybe">Maybe so</label>
+
+        <div class="indent hidden" id="axe_extras">
+            What are its features?
+            <div class="indent">
+                <input type="checkbox" name="axe_feature" value="bludgeon" id="axe_bludgeon" /> <label for="axe_bludgeon">Can also be used as bludgeon</label>
+                <br />
+                <input type="checkbox" name="axe_feature" value="thrown" id="axe_thrown" /> <label for="axe_thrown">Can be thrown</label>
+                <br />
+                <input type="checkbox" name="axe_feature" value="double-handed" id="axe_double-handed" /> <label for="axe_double-handed">Double-handed</label>
+                <br />
+                <input type="checkbox" name="axe_feature" value="prop" id="axe_prop" /> <label for="axe_prop">Halloween prop</label>
+                <br />
+                <input type="checkbox" name="axe_feature" value="hatchet" id="axe_hatchet" /> <label for="axe_hatchet">Mistaken for hatchet</label>
+                <br />
+                <input type="checkbox" name="axe_feature" value="self-sharpening" id="axe_self-sharpening" /> <label for="axe_self-sharpening">Self-sharpening</label>
+            </div>
+            Where do you typically use it?
+            <div class="indent">
+                <input type="checkbox" name="axe_location" value="barn" id="axe_barn" /> <label for="axe_barn">Barnyard highjinx</label>
+                <br />
+                <input type="checkbox" name="axe_location" value="forest" id="axe_forest" /> <label for="axe_forest">Forest</label>
+                <br />
+                <input type="checkbox" name="axe_location" value="mines" id="axe_mines" /> <label for="axe_mines">Mines of Moria</label>
+                <br />
+                <input type="checkbox" name="axe_location" value="war" id="axe_war" /> <label for="axe_war">War</label>
+            </div>
+            How long have you had it?
+            <div class="indent">
+                <select name="axe_ownership">
+                    <option value="">Please select...</option>
+                    <option value="608">&lt; 1 year</option>
+                    <option value="609">1-3 years</option>
+                    <option value="610">3-10 years</option>
+                    <option value="611">10-25 years</option>
+                    <option value="1926">Heirloom</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" value="Go!" />
+</form>
+</body>
+</html>

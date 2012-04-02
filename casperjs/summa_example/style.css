@@ -1,0 +1,17 @@
+body {
+    background-color: white;
+}
+.indent {
+    padding-left: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+#errors {
+    display: none;
+    color: #ff1493;
+    background-color: #ffc0cb;
+    border: 2px solid black;
+}
