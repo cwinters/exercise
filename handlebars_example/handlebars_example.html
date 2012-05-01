@@ -10,6 +10,7 @@
 <script src="handlebars.js" type="text/javascript"></script>
 <script src="underscore.js" type="text/javascript"></script>
 <script id="tmplAgreeBase" type="text/template.handlebars">
+ {{t "some.base" endpoint="MyEndpoint"}}
   <ul>
     {{#each items}}
       <li>{{agree_button}}</li>
@@ -18,12 +19,14 @@
 </script>
 
 <script id="tmplAgreeHelper" type="text/template.handlebars">
+    {{t "some.helper" endpoint="MyEndpoint"}}
     {{#ulist items}}
         {{agree_button}}
     {{/ulist}}
 </script>
 
 <script id="tmplAgreeStyled" type="text/template.handlebars">
+    {{t "some.styled" endpoint="MyEndpoint"}}
     {{#ulist items class="awesome"}}
         {{agree_button}}
     {{/ulist}}
@@ -56,6 +59,11 @@
         return new Handlebars.SafeString(
             "<button>I agree. I " + this.emotion + " " + this.name + "</button>"
         );
+    });
+
+    // sample localization
+    Handlebars.registerHelper( 't', function( key, replacements ) {
+        return I18n.t( key, replacements );
     });
 
     Handlebars.registerHelper( 'ulist', function( context, options ) {
@@ -96,6 +104,14 @@
             $( '#helperStyleContainer' ).append( evalTemplate( 'tmplAgreeStyled', templateTypes ) );
         });
     });
+
+    var I18n = {
+        t: function( text, args ) {
+            return 'xlate( ' + text + ' => ' + _.map( args.hash, function( value, optionKey ) {
+                return optionKey + '=' + value;
+            }).join( '; ' ) + ')';
+        }
+    };
 </script>
 </head>
 <body>
