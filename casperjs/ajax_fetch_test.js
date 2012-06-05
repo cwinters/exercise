@@ -1,3 +1,6 @@
+casper.options.logLevel = "debug";
+casper.options.verbose  = true;
+
 casper.start( 'http://www.cwinters.com/testing/casper_ajax_call.html' );
 
 casper.then( function() {
@@ -6,6 +9,7 @@ casper.then( function() {
     this.capture( "before_click.png" );
 
     this.click( '#generate_list' );
+
     this.waitUntilVisible( '#wishlist', 
       function() {
         this.capture( "after_visible.png" );
