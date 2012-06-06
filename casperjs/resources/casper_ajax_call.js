@@ -9,7 +9,7 @@ var Page = {
             $.ajax({
                 dataType : 'json',
                 type     : 'POST',
-                url      : 'query_results.json'
+                url      : 'casper_ajax_call_results_1.json'
             })
             .done( Page.fetchResults.success )
             .fail( Page.fetchResults.failure );
