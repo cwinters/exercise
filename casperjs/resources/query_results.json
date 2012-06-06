@@ -2,10 +2,13 @@
   "created" : 1329925367000,
   "members" : [
     { "name" : "The Chairs Are Where the People Go: How to Live, Work, and Play in the City",
-      "url"  : "http://www.amazon.com/Chairs-Are-Where-People-Go/dp/0865479453" },
+      "url"  : "http://www.amazon.com/Chairs-Are-Where-People-Go/dp/0865479453",
+      "id"   : "9453" },
     { "name" : "Into the Silence: The Great War, Mallory, and the Conquest of Everest",
-      "url"  : "http://www.amazon.com/Into-Silence-Mallory-Conquest-Everest/dp/0375408894" },
+      "url"  : "http://www.amazon.com/Into-Silence-Mallory-Conquest-Everest/dp/0375408894",
+      "id"   : "8894" },
     { "name" : "Parenting, Inc.: How the Billion-Dollar Baby Business Has Changed the Way We Raise Our Children",
-      "url"  : "http://www.amazon.com/Parenting-Inc-Billion-Dollar-Business-Children/dp/B0043RTBE2" }
+      "url"  : "http://www.amazon.com/Parenting-Inc-Billion-Dollar-Business-Children/dp/B0043RTBE2",
+      "id"   : "TBE2" }
   ]
 }

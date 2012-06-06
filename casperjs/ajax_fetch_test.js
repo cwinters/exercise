@@ -6,13 +6,12 @@ casper.start( 'http://www.cwinters.com/testing/casper_ajax_call.html' );
 casper.then( function() {
     this.viewport( 800, 600 );
     this.test.assertEquals( this.getTitle(), 'CasperJS testing: AJAX results', 'Page title' );
-    this.capture( "before_click.png" );
+    this.capture( 'ajax_1_before_click.png' );
 
     this.click( '#generate_list' );
 
-    this.waitUntilVisible( '#wishlist', 
-      function() {
-        this.capture( "after_visible.png" );
+    this.waitUntilVisible( '#wishlist', function() {
+        this.capture( 'ajax_2_after_visible.png' );
         var headerText = this.evaluate( function() { return $( '#wishlist p' ).text(); } );
         this.test.assertMatch( headerText, /Chris 2011/, 'Header content' );
         this.test.assertEvalEquals( function() { 
