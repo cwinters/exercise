@@ -1,0 +1,15 @@
+{ "name"    : "Chris 2010",
+  "created" : 1319925367000,
+  "id"      : "81095A",
+  "members" : [
+    { "name" : "Planet Taco: A Global History of Mexican Food",
+      "url"  : "http://www.amazon.com/Planet-Taco-Global-History-Mexican/dp/0199740062",
+      "id"   : "0062" },
+    { "name" : "Aerobie AeroPress Coffee and Espresso Maker",
+      "url"  : "http://www.amazon.com/Aerobie-AeroPress-Coffee-Espresso-Maker/dp/B0047BIWSK",
+      "id"   : "IWSK" },
+    { "name" : "Apocalypse Culture",
+      "url"  : "http://www.amazon.com/Apocalypse-Culture-Adam-Parfrey/dp/0922915059",
+      "id"   : "5059" }
+  ]
+}
