@@ -273,6 +273,11 @@ function is_null( msg, actual ) {
                               "Expected null, got [" + actual + "]" );
 }
 
+function isnt_null( msg, actual ) {
+    return TestPlan.TAP.test( actual != null, msg, 
+                              "Expected not null, got null" );
+}
+
 
 /**
  * Output a test depending on the actual value matchign the given regular expression
