@@ -17,7 +17,10 @@ def foobar(a, b)
   end
 end
 
-if ARGV.length != 2 || ARGV[0].to_i.nil? || ARGV[1].to_i.nil?
+def not_num(s)
+  s.match(/\A\d+\Z/).nil?
+end
+if ARGV.length != 2 || not_num(ARGV[0]) || not_num(ARGV[1])
   puts "Expected two ints, get that other garbage out of here!"
   exit(1) 
 end
