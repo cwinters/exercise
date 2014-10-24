@@ -29,7 +29,7 @@ Exercise 3:
 Run against a local postgres database with:
 
     $ createdb tracking
-    $ psql -f exercise_3.sql
+    $ psql -f exercise_3.sql tracking
 
 I renamed `class` to `classroom` because `class` is a reserved word in either
 SQL or Postgres.
