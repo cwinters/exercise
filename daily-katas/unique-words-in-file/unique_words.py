@@ -28,4 +28,4 @@ if __name__ == "__main__":
     for path in sys.argv[1:]:
         count_words(words, path)
     for word, count in sorted(words.items(), key=operator.itemgetter(1), reverse=True):
-        print "%s = %s" % (word, count)
+        print "%15s: %s" % (word, count)
