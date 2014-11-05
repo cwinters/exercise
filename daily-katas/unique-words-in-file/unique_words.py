@@ -2,6 +2,7 @@
 
 import operator, re, sys
 
+nonword = re.compile('[\W_]')
 line_splitter = re.compile('(\s+|\-\-)')
 empty = re.compile('^\s*$')
 digits = re.compile('^\d+$')
@@ -9,7 +10,7 @@ digits = re.compile('^\d+$')
 def clean(word):
     if empty.match(word) or digits.match(word):
         return None
-    return word.lower()
+    return nonword.sub('', word.lower())
 
 def count_words(counts, path):
     for line in file(path):
